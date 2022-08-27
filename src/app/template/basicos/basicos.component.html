@@ -5,12 +5,15 @@
         <form (ngSubmit)="guardar(miFormulario)" #miFormulario="ngForm" autocomplete="off">
             <div class="mb-3">
                 <label for="producto" class="form-label">Producto</label>
-                <input type="text" ngModel name="producto" class="form-control" id="producto" required>
-                <div class="form-text text-danger">Debe de ser de 3 letras</div>
+                <input type="text" ngModel name="producto" class="form-control" id="producto" required minlength="3">
+                <div class="form-text text-danger"
+                    *ngIf="miFormulario.controls['producto']?.invalid && miFormulario.controls['producto']?.touched">
+                    Debe de ser de 3 letras
+                </div>
             </div>
             <div class="mb-3">
                 <label for="precio" class="form-label">Precio</label>
-                <input type="number" ngModel name="precio" class="form-control" id="precio">
+                <input type="number" ngModel name="precio" class="form-control" id="precio" required min="0">
             </div>
             <div class="mb-3">
                 <label for="existencias" class="form-label">Existencias</label>
@@ -27,6 +30,13 @@
     <div class="col">
         <strong>Valid</strong>
         <pre>{{ miFormulario.valid }}</pre>
+
+        <span><strong>Pristine</strong><small> ¿No se han cambiado ninguno de los valores con los que se mostró el
+                formulario?</small></span>
+        <pre>{{ miFormulario.pristine }}</pre>
+
+        <strong>Touched</strong>
+        <pre>{{ miFormulario.touched }}</pre>
 
         <strong>Value</strong>
         <pre>{{ miFormulario.value | json }}</pre>
