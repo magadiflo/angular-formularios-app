@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -9,13 +9,19 @@ import { NgForm } from '@angular/forms';
 })
 export class BasicosComponent implements OnInit {
 
+  @ViewChild("miFormulario") miFormulario!: NgForm;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  guardar(form: NgForm): void {
-    console.log(form.value);
+  guardar(): void {
+    console.log(this.miFormulario);
+  }
+
+  nombreValido(): boolean {
+    return this.miFormulario?.controls['producto']?.invalid && this.miFormulario?.controls['producto']?.touched;
   }
 
 }

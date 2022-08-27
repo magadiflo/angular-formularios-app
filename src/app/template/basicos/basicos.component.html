@@ -2,12 +2,12 @@
 <div class="row">
     <div class="col">
         <!--* #miFormulario="ngForm", le decimos que enlace el ngForm a la variable de referencia miFormulario -->
-        <form (ngSubmit)="guardar(miFormulario)" #miFormulario="ngForm" autocomplete="off">
+        <form (ngSubmit)="guardar()" #miFormulario="ngForm" autocomplete="off">
             <div class="mb-3">
                 <label for="producto" class="form-label">Producto</label>
                 <input type="text" ngModel name="producto" class="form-control" id="producto" required minlength="3">
                 <div class="form-text text-danger"
-                    *ngIf="miFormulario.controls['producto']?.invalid && miFormulario.controls['producto']?.touched">
+                    *ngIf="nombreValido()">
                     Debe de ser de 3 letras
                 </div>
             </div>
