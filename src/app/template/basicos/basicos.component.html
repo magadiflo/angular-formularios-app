@@ -19,7 +19,7 @@
             </div>
             <div class="mb-3">
                 <label for="existencias" class="form-label">Existencias</label>
-                <input type="number" ngModel name="existencias" class="form-control" id="existencias">
+                <input type="number" ngModel name="existencias" customMin [minimo]="0" require class="form-control" id="existencias">
             </div>
 
             <div class="d-flex justify-content-end">
