@@ -5,21 +5,24 @@
         <form (ngSubmit)="guardar()" #miFormulario="ngForm" autocomplete="off">
             <div class="mb-3">
                 <label for="producto" class="form-label">Producto</label>
-                <input type="text" ngModel name="producto" class="form-control" id="producto" required minlength="3">
+                <input type="text" ngModel name="producto" class="form-control" id="producto" required minlength="3"
+                    [ngModel]="initForm.producto">
                 <div class="form-text text-danger" *ngIf="nombreInvalido()">
                     Debe de ser de 3 letras
                 </div>
             </div>
             <div class="mb-3">
                 <label for="precio" class="form-label">Precio</label>
-                <input type="number" ngModel name="precio" class="form-control" id="precio" required min="0">
+                <input type="number" ngModel name="precio" class="form-control" id="precio" required min="0"
+                    [ngModel]="initForm.precio">
                 <div class="form-text text-danger" *ngIf="precioInvalido()">
                     El precio debe ser mayor o igual a 0
                 </div>
             </div>
             <div class="mb-3">
                 <label for="existencias" class="form-label">Existencias</label>
-                <input type="number" ngModel name="existencias" customMin [minimo]="0" require class="form-control" id="existencias">
+                <input type="number" ngModel name="existencias" customMin [minimo]="0" require class="form-control"
+                    id="existencias" [ngModel]="initForm.existencias">
             </div>
 
             <div class="d-flex justify-content-end">
