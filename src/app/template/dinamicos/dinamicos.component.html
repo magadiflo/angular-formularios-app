@@ -1,5 +1,5 @@
 <h2 class="border-bottom mb-2">Template: Dinámicos</h2>
-<form #miFormulario="ngForm" (ngSubmit)="guardar()" autocomplete="off">
+<form #miFormulario="ngForm" autocomplete="off">
     <div class="mb-3">
         <label for="nombre" class="form-label">Nombre</label>
         <input type="text" [(ngModel)]="persona.nombre" name="nombre" class="form-control" id="nombre" required>
@@ -11,8 +11,9 @@
     <div class="mb-3">
         <label for="juego-favorito" class="form-label">Juego favorito</label>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" id="juego-favorito" name="juego-favorito">
-            <button type="button" class="btn btn-outline-secondary">Agregar</button>
+            <input type="text" class="form-control" id="juego-favorito" name="juego-favorito" [(ngModel)]="nuevoJuego"
+                (keyup.enter)="agregarJuego()">
+            <button type="button" class="btn btn-outline-secondary" (click)="agregarJuego()">Agregar</button>
         </div>
     </div>
     <div class="mb-3 row">
@@ -24,7 +25,7 @@
         </div>
     </div>
     <div class="d-flex justify-content-end">
-        <button type="submit" [disabled]="miFormulario.invalid" class="btn btn-primary">
+        <button type="button" (click)="guardar()" [disabled]="miFormulario.invalid" class="btn btn-primary">
             Guardar
         </button>
     </div>
