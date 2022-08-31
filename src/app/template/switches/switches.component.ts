@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-switches',
@@ -7,6 +8,13 @@ import { Component } from '@angular/core';
   ]
 })
 export class SwitchesComponent {
+
+  @ViewChild('miFormulario') miFormulario!: NgForm;
+
+  //* Lo hacemos desta manera por que en el HTML nos tira un warning
+  get errores() {
+    return this.miFormulario?.controls['terminos']?.errors
+  }
 
   persona = {
     genero: '',

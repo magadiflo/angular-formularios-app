@@ -25,8 +25,8 @@
             </div>
             <div class="mb-3">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="terminos-condiciones"
-                        name="terminos" [(ngModel)]="terminoCondiciones" required>
+                    <input class="form-check-input" type="checkbox" id="terminos-condiciones" name="terminos"
+                        [(ngModel)]="terminoCondiciones" required>
                     <label class="form-check-label" for="terminos-condiciones">Términos y contidiciones</label>
                 </div>
             </div>
@@ -45,4 +45,4 @@
 <h5>Valid</h5>
 <pre>{{ miFormulario.valid }}</pre>
 <h5>Términos</h5>
-<pre>{{ miFormulario.controls['terminos']?.errors | json}}</pre>
+<pre>{{ errores | json }}</pre>
