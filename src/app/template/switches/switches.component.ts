@@ -13,4 +13,8 @@ export class SwitchesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  guardar(): void {
+    console.log('Posteo formulario...');
+  }
+
 }
