@@ -26,9 +26,12 @@ export class DinamicosComponent {
     ]
   }
 
-
   guardar(): void {
     console.log('Formulario posteado');
+  }
+
+  eliminar(index: number): void {
+    this.persona.favoritos.splice(index, 1);
   }
 
 }
