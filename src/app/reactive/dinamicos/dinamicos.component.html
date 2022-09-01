@@ -16,9 +16,13 @@
     </div>
     <div class="mb-3 row">
         <label for="favoritos" class="col-sm-2 col-form-label">Favoritos</label>
-        <div class="input-group mb-3 col-sm-10" *ngFor="let juego of []; let i = index;">
-            <input type="text" class="form-control" aria-label="favoritos">
-            <button type="button" class="btn btn-danger">Eliminar</button>
+        <div formArrayName="favoritos">
+
+            <div *ngFor="let favorito of favoritosArray.controls; let i = index;" class="input-group mb-3 col-sm-10">
+                <input type="text" [formControlName]="i" class="form-control" aria-label="favoritos">
+                <button type="button" class="btn btn-danger">Eliminar</button>
+            </div>
+
         </div>
     </div>
     <div class="d-flex justify-content-end">
@@ -28,5 +32,8 @@
     </div>
 </form>
 
-<!-- <strong>Persona</strong>
-<pre>{{ persona | json }}</pre> -->
+<strong>Valid</strong>
+<pre>{{ miFormulario.valid }}</pre>
+<br>
+<strong>Value</strong>
+<pre>{{ miFormulario.value | json }}</pre>
