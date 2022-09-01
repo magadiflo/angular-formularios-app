@@ -1,28 +1,28 @@
 <h2 class="border-bottom mb-2">Reactivos: Dinámicos</h2>
-<form autocomplete="off">
+<form [formGroup]="miFormulario" (ngSubmit)="guardar()" autocomplete="off">
     <div class="mb-3">
         <label for="nombre" class="form-label">Nombre</label>
-        <input type="text" name="nombre" class="form-control" id="nombre">
-        <div class="form-text text-danger">
+        <input type="text" class="form-control" id="nombre" formControlName="nombre">
+        <div *ngIf="isFieldInvalid('nombre')" class="form-text text-danger">
             Este campo es obligatorio
         </div>
     </div>
     <div class="mb-3">
         <label for="juego-favorito" class="form-label">Juego favorito</label>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" id="juego-favorito" name="juego-favorito">
+            <input type="text" class="form-control" id="juego-favorito">
             <button type="button" class="btn btn-outline-secondary">Agregar</button>
         </div>
     </div>
     <div class="mb-3 row">
         <label for="favoritos" class="col-sm-2 col-form-label">Favoritos</label>
         <div class="input-group mb-3 col-sm-10" *ngFor="let juego of []; let i = index;">
-            <input type="text" class="form-control" name="juego_{{ i }}" aria-label="favoritos">
+            <input type="text" class="form-control" aria-label="favoritos">
             <button type="button" class="btn btn-danger">Eliminar</button>
         </div>
     </div>
     <div class="d-flex justify-content-end">
-        <button type="button" class="btn btn-primary">
+        <button type="submit" class="btn btn-primary">
             Guardar
         </button>
     </div>
