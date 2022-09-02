@@ -20,7 +20,7 @@
 
             <div *ngFor="let favorito of favoritosArray.controls; let i = index;" class="input-group mb-3 col-sm-10">
                 <input type="text" [formControlName]="i" class="form-control" aria-label="favoritos">
-                <button type="button" class="btn btn-danger">Eliminar</button>
+                <button type="button" class="btn btn-danger" (click)="borrar(i)">Eliminar</button>
             </div>
 
         </div>
