@@ -1,1 +1,32 @@
-<p>registro works!</p>
+<h2 class="my-4 border-bottom">Validaciones Reactivas</h2>
+
+<div class="card">
+    <div class="card-body">
+        <form autocomplete="off">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre">
+                <div class="form-text text-danger">Debe ser en formado de nombre y apellido</div>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email">
+            </div>
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password">
+            </div>
+            <div class="mb-3">
+                <label for="password-confirm" class="form-label">Confirmar Password</label>
+                <input type="password" class="form-control" id="password-confirm">
+            </div>
+            <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary">Registrarse</button>
+            </div>
+        </form>
+    </div>
+</div>
