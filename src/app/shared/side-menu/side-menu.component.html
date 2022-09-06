@@ -11,3 +11,9 @@
         {{ menu.texto }}
     </li>
 </ul>
+<h2 class="border-bottom mt-4 mb-2">Validaciones</h2>
+<ul class="list-group">
+    <li *ngFor="let menu of authMenu;" [routerLink]="[menu.ruta]" routerLinkActive="active" class="list-group-item">
+        {{ menu.texto }}
+    </li>
+</ul>

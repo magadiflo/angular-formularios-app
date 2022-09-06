@@ -28,6 +28,11 @@ export class SideMenuComponent implements OnInit {
     { texto: 'Switches', ruta: './reactive/switches' },
   ];
 
+  authMenu: MenuItem[] = [
+    { texto: 'Login', ruta: './auth/login' },
+    { texto: 'Registro', ruta: './auth/registro' },
+  ];
+
   constructor() { }
 
   ngOnInit(): void {
