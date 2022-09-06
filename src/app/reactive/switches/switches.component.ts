@@ -36,8 +36,57 @@ export class SwitchesComponent implements OnInit {
      */
     this.miFormulario.reset({
       ...this.persona,
-      terminos: false 
+      terminos: false
+    });
+
+    //* Podemos subscribirnos a un campo en específico del formulario para reaccionar a sus cambios
+    this.miFormulario.controls['terminos'].valueChanges.subscribe(termino => {
+      console.log('termino', termino);
+    });
+
+    //* Podemos subscribimos al formulario para reaccionar a sus cambios
+    this.miFormulario.valueChanges.subscribe(({terminos, ...rest}) => { //* ...rest, es el operador REST: nos permiten representar un número indefinido de argumentos como un array
+      this.persona = rest;
+      console.log('this.persona', this.persona);
     });
   }
 
+  guardar(): void {
+    const formValue = { ...this.miFormulario.value }; //* ...this.miFormulario.value, Operador Spread: expande los elementos individuales
+    delete formValue.terminos; //* Elimina la propiedad terminos del objeto
+    this.persona = formValue;
+  }
+
 }
+
+/**
+ * * Diferencia entre el operador Rest y Spread
+ * * La principal diferencia entre rest y spread es que:
+ * * > Rest organiza el resto de algunos valores específicos suministrados por el usuario en un arreglo de JavaScript. 
+ * * > Spread expande los iterables en elementos individuales.
+ * *
+ * * Ejemplo REST -------------------------------------------------
+ * * Usa rest para encerrar el resto de valores específicos proporcionados por el usuario en un arreglo:
+ * * function miBio(primerNombre, apellido, ...otraInfo) { 
+ * *   return otraInfo;
+ * * }
+ * * 
+ * * // Invoca la función miBio pasando cinco argumentos a sus parámetros:
+ * * miBio("Oluwatobi", "Sofela", "CodeSweetly", "Desarrollo Web", "Hombre");
+ * *
+ * * // La invocación anterior devolverá:
+ * * ["CodeSweetly", "Desarrollo Web", "Hombre"]
+ * *
+ * * Ejemplo SPREAD -----------------------------------------------
+ * * // Define una función con tres parámetros:
+ * *  function miBio(primerNombre, apellido, empresa) { 
+ * *    return `${primerNombre} ${apellido} dirije ${empresa}`;
+ * *  }
+ * *
+ * *  // Utiliza spread para expandir los elementos de un arreglo en argumentos individuales:
+ * *  miBio(...["Oluwatobi", "Sofela", "CodeSweetly"]);
+ * *
+ * *  // La invocación anterior devolverá:
+ * *  “Oluwatobi Sofela dirije CodeSweetly”
+ * *
+ */

@@ -1,7 +1,7 @@
 <h2 class="border-bottom mb-2">Reactivos: Básicos</h2>
 <div class="row">
     <div class="col">
-        <form [formGroup]="miFormulario" autocomplete="off">
+        <form [formGroup]="miFormulario" (ngSubmit)="guardar()" autocomplete="off">
             <div class="mb-3">
                 <label class="form-label">Género</label>
                 <div class="form-check">
