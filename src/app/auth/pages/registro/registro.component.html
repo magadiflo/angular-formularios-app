@@ -10,7 +10,8 @@
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email">
+                <input type="email" class="form-control" id="email" formControlName="email">
+                <div *ngIf="campoInvalido('email')" class="form-text text-danger">El correo es obligatorio</div>
             </div>
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
@@ -36,3 +37,5 @@
 <hr>
 <strong>Nombre</strong>
 <pre>{{ miFormulario.controls['nombre'].errors | json }}</pre>
+<strong>Email</strong>
+<pre>{{ miFormulario.controls['email'].errors | json }}</pre>
