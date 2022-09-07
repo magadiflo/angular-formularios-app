@@ -15,7 +15,10 @@ export class RegistroComponent implements OnInit {
     nombre: ['', [Validators.required, Validators.pattern(this.vs.nombreApellidoPattern)]],
     email: ['', [Validators.required, Validators.pattern(this.vs.emailPattern)]],
     username: ['', [Validators.required, this.vs.noPuedeSerStrider]],
-    password: []
+    password: ['', [Validators.required, Validators.minLength(6)]],
+    'password-confirm': ['', [Validators.required]],
+  }, {
+    validators: [this.vs.camposIguales('password', 'password-confirm')], //* Definimos todas las validaciones que se aplicarán a TODO EL FORMULARIO
   });
 
   constructor(

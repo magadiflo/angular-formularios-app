@@ -22,11 +22,17 @@
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password">
+                <input type="password" class="form-control" id="password" formControlName="password">
+                <div *ngIf="campoInvalido('password')" class="form-text text-danger">
+                    La contraseña debe ser mayor de 6 caracteres
+                </div>
             </div>
             <div class="mb-3">
                 <label for="password-confirm" class="form-label">Confirmar Password</label>
-                <input type="password" class="form-control" id="password-confirm">
+                <input type="password" class="form-control" id="password-confirm" formControlName="password-confirm">
+                <div *ngIf="campoInvalido('password-confirm')" class="form-text text-danger">
+                    Las contraseñas deben ser iguales
+                </div>
             </div>
             <div class="d-flex justify-content-end">
                 <button type="submit" class="btn btn-primary">Registrarse</button>
@@ -36,11 +42,17 @@
 </div>
 
 <br>
-<strong>FormValid: {{ miFormulario.valid }}</strong>
+<pre><strong>FormValid</strong>: {{ miFormulario.valid }}</pre>
+<pre><strong>Form errors</strong>: {{ miFormulario.errors | json }}</pre>
 <hr>
+
 <strong>Nombre</strong>
 <pre>{{ miFormulario.controls['nombre'].errors | json }}</pre>
 <strong>Email</strong>
 <pre>{{ miFormulario.controls['email'].errors | json }}</pre>
 <strong>Username</strong>
 <pre>{{ miFormulario.controls['username'].errors | json }}</pre>
+<strong>Password</strong>
+<pre>{{ miFormulario.controls['password'].errors | json }}</pre>
+<strong>Password confirm</strong>
+<pre>{{ miFormulario.controls['password-confirm'].errors | json }}</pre>
