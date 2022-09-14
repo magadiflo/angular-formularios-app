@@ -26,7 +26,7 @@ export class ValidatorService {
   //* al campo password-confirm (secondField) la validación
   camposIguales(firstField: string, secondField: string) {
     return (formGroup: AbstractControl): ValidationErrors | null => { //* Nos debemos asegurar de que a la hora de ejecutar la función camposIguales(...) debemos de regresar una función
-      console.log(formGroup.value);
+      //*console.log(formGroup.value);
       const pass1 = formGroup.get(firstField)?.value;
       const pass2 = formGroup.get(secondField)?.value;
 

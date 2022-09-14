@@ -23,7 +23,7 @@ export class EmailValidatorService implements AsyncValidator {
 
   validate(control: AbstractControl): Observable<ValidationErrors | null> {
     const email: string = control.value;
-    console.log(email);
+    //*console.log(email);
     return this.http.get<any[]>(`http://127.0.0.1:3000/usuarios?q=${email}`)
       .pipe(
         delay(2500), //* Simulando retardo de 2.5 seg. para ver el estado del formulario
